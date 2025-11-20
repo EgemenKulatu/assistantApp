@@ -130,6 +130,12 @@ Feel free to fork.
 
 ---
 
+## 🎥 Demo Video
+
+https://github.com/EgemenKulatu/assistantApp/blob/main/demo/demo.mp4
+
+---
+
 ## 📬 Contact
 
 Egemen Kulatu  

@@ -1,4 +1,5 @@
-# Daily AI Journal 📓🤖  
+# Daily AI Journal 📓🤖
+
 A React Native application that allows users to write daily entries and receive AI-powered sentiment analysis using Hugging Face Inference API.  
 The app also stores entries locally using AsyncStorage and provides a weekly mood summary.
 
@@ -7,131 +8,135 @@ The app also stores entries locally using AsyncStorage and provides a weekly moo
 ## 📱 Features
 
 ### ✔ Daily Entry Screen
-- Users write a short journal entry about their day.
-- AI sentiment analysis using **Hugging Face (DistilBERT SST-2)**.
-- Offline detection (AI analysis disabled when offline).
-- Automatic summary and suggestion based on sentiment.
-- Saves every entry to local storage.
+- Users can write a journal entry about their day.
+- AI sentiment analysis using Hugging Face (DistilBERT SST-2).
+- Offline detection (Analyze button disabled when offline).
+- Auto-generated summary and suggestion based on mood.
+- Saved entries stored locally.
 
 ### ✔ History Screen
-- Displays all saved journal entries.
+- Displays all saved entries.
 - Each entry includes:
-  - Emoji representing sentiment (😊 / 😐 / 😞)
-  - Timestamp  
-  - User text  
-  - Sentiment label  
-- Entries are color-coded by sentiment.
+  - Sentiment emoji (😊 / 😐 / 😞)
+  - Timestamp
+  - First lines of user text
+  - Sentiment label
+- Colored backgrounds based on sentiment.
 
 ### ✔ Weekly Summary Screen
-- Analyzes the last 7 days of entries.
-- Shows statistics:
-  - Total entries  
-  - Positive / Neutral / Negative counts  
-- Generates a simple AI-style weekly summary.
+- Analyzes entries from the last 7 days.
+- Shows totals:
+  - Positive
+  - Neutral
+  - Negative
+- Generates an “AI-style” weekly mood summary.
 
 ---
 
-## 🧠 AI Model
+## 🧠 AI Model Used
 
-AI sentiment prediction is provided via:
+**Model**
 
-distilbert-base-uncased-finetuned-sst-2-english
+    distilbert-base-uncased-finetuned-sst-2-english
 
-java
-Kodu kopyala
+A lightweight sentiment analysis model fine-tuned on the SST-2 dataset.
 
-API Endpoint (HuggingFace Inference Router):
+**Inference Router Endpoint**
 
-https://router.huggingface.co/hf-inference/models/distilbert/distilbert-base-uncased-finetuned-sst-2-english
-
-yaml
-Kodu kopyala
+    https://router.huggingface.co/hf-inference/models/distilbert/distilbert-base-uncased-finetuned-sst-2-english
 
 ---
 
 ## 🔐 Environment Variables
 
-Create a `.env` file:
+Create a `.env` file in the project root:
 
-HUGGINGFACE_API_KEY=your_api_key_here
+    HUGGINGFACE_API_KEY=your_api_key_here
 
-python
-Kodu kopyala
+Import in your code:
 
-And import it in code:
+    import { HUGGINGFACE_API_KEY } from '@env';
 
-```ts
-import { HUGGINGFACE_API_KEY } from '@env';
-📂 Project Structure
-bash
-Kodu kopyala
-/src
-  /screens
-    DailyEntryScreen.tsx
-    HistoryScreen.tsx
-    WeeklySummaryScreen.tsx
+---
 
-  /services
-    huggingFaceService.ts
+## 📂 Project Structure
 
-  /storage
-    journalStorage.ts
+    /src
+      /screens
+        DailyEntryScreen.tsx
+        HistoryScreen.tsx
+        WeeklySummaryScreen.tsx
 
-  /theme
-    (colors, spacing, radius)
-🛠 Technologies Used
-React Native CLI
+      /services
+        huggingFaceService.ts
 
-TypeScript
+      /storage
+        journalStorage.ts
 
-Hugging Face Inference API
+      /theme
+        index.ts (colors, spacing, radius)
 
-AsyncStorage
+---
 
-React Navigation
+## 🛠 Technologies Used
 
-NetInfo (offline detection)
+- React Native CLI  
+- TypeScript  
+- Hugging Face Inference API  
+- AsyncStorage  
+- React Navigation  
+- NetInfo (offline detection)  
+- react-native-dotenv  
 
-🚀 How to Run the Project
+---
+
+## 🚀 How to Run the Project
+
 1. Install dependencies
-nginx
-Kodu kopyala
-npm install
-2. Configure .env
-ini
-Kodu kopyala
-HUGGINGFACE_API_KEY=your_key_here
-3. Start Metro
-java
-Kodu kopyala
-npx react-native start
-4. Run Android
-arduino
-Kodu kopyala
-npx react-native run-android
-📌 Notes About Development Process (What I Implemented)
-Built 3 screens based on the project spec.
 
-Implemented real online sentiment analysis through Hugging Face.
+       npm install
 
-Added fallback behavior for unexpected API formats.
+2. Configure environment variables
 
-Implemented offline detection using @react-native-community/netinfo.
+       HUGGINGFACE_API_KEY=your_key_here
 
-Designed UI components with a clean and minimal look.
+3. Start the Metro bundler
 
-Added AsyncStorage-based local history system.
+       npx react-native start
 
-Built weekly statistics + simple mood algorithm.
+4. Run on Android
 
-Added environment variable handling via react-native-dotenv.
+       npx react-native run-android
 
-Ensured code clarity by adding descriptive comments across all files.
+---
 
-📄 License
-This project is created for educational/study/staj purposes.
+## 📌 Notes About Development Process
+
+- Built all screens according to the project specification.  
+- Integrated real-time sentiment analysis through Hugging Face.  
+- Implemented offline detection using @react-native-community/netinfo.  
+- Added UI polishing and improved user experience.  
+- Added AsyncStorage-based local persistence system.  
+- Handled multiple API response formats gracefully.  
+- Added TypeScript-based type safety across the project.  
+- Documented code using clear and concise comments.
+
+---
+
+## 📄 License
+
+This project is created for educational/study/staj purposes.  
 Feel free to fork.
 
-📬 Contact
-If you want to reach me:
-Egemen Kulatu — GitHub: https://github.com/EgemenKulatu
+---
+
+## 🎥 Demo Video
+
+https://github.com/EgemenKulatu/assistantApp/blob/main/demo/demo.mp4
+
+---
+
+## 📬 Contact
+
+Egemen Kulatu  
+GitHub: https://github.com/EgemenKulatu
